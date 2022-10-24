@@ -20,3 +20,8 @@ def avtale():
     avtale = Avtale(tittel, sted, tidspunkt, varighet)
     return avtale
 
+liste_med_avtaler = []
+def skriv_ut_avtaler(lister):
+    print("########## AVTALER ##########")
+    for i in range(lister):
+        print(f"Avtale {i}. {lister[i]}") 
