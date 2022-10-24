@@ -1,2 +1,4 @@
-# TESTING
-# SEM ER GAY
+git add . 
+git commit -m ""
+git push
+git pull
