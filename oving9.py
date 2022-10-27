@@ -24,4 +24,15 @@ liste_med_avtaler = []
 def skriv_ut_avtaler(lister):
     print("########## AVTALER ##########")
     for i in range(lister):
-        print(f"Avtale {i}. {lister[i]}") 
+        print(f"Avtale {i}. {lister[i]}")
+
+####### USIKKER PÅ DENNE ##########
+def lagrer_liste_med_avtaler(lister): # Skal lagre listen med avtaler som ei txt.fil
+    with open("liste_med_avtaler.txt", "w", encoding="UTF8") as lmf:
+        lmf.write(lister)
+###################################
+
+### TESTING AV OPPGAVEN ###
+avtale()
+skriv_ut_avtaler(liste_med_avtaler)
+lagrer_liste_med_avtaler(liste_med_avtaler)
