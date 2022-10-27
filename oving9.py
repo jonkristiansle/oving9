@@ -23,7 +23,7 @@ def avtale():
 liste_med_avtaler = []
 def skriv_ut_avtaler(lister):
     print("########## AVTALER ##########")
-    for i in range(lister):
+    for i in lister:
         print(f"Avtale {i}. {lister[i]}")
 
 ####### USIKKER PÅ DENNE ##########
