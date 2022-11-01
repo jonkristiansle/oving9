@@ -32,8 +32,6 @@ def skriv_ut_avtaler(lister):
     for i in lister:
         print(i)
 
-
-####### USIKKER PÅ DENNE ##########
 def lagrer_liste_med_avtaler(lister):  # Skal lagre listen med avtaler som ei txt.fil
     with open("liste_med_avtaler.txt", "w", encoding="UTF8") as lmf:
         for i in lister:
