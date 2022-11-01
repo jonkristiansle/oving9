@@ -1,0 +1,4 @@
+Avtalen er: skole.
+Sted: Skolen.
+Tidspunkt: 2022-11-04 12:00:00.
+Varighet: 120
