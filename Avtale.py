@@ -48,9 +48,6 @@ def henter_avtale_fra_fil(filnavn):
     print(liste_fra_fil)
     return liste_fra_fil
 
-
-
-
 liste_med_avtaler = []
 #avtale(liste_med_avtaler)
 #avtale(liste_med_avtaler)
@@ -65,29 +62,29 @@ Select operation:
 [1] Lese inn avtalve fra fil
 [2] Skriv avtalene til fil
 [3] Ny avtale
-[4] Skriv ut alle avtalene fra fil
+[4] Skriv ut alle avtalene
 [5] Avslutt
 
 ''')
     mylist = []
 
     if operation == '1':
-        skriv_ut_avtaler(liste_med_avtaler)
-
+        henter_avtale_fra_fil('liste_med_avtaler.txt')
+        again()
     elif operation == '2':
         lagrer_liste_med_avtaler(liste_med_avtaler)
-
+        again()
     elif operation == '3':
         avtale(liste_med_avtaler)
-
+        again()
     elif operation == '4':
-        print('feil')
+        skriv_ut_avtaler(liste_med_avtaler)
+        again()
     elif operation == '5':
         print('Ok, hadde :)')
     else:
         print('Du må velge et gyldig tall.')
-       if operation == '1'or'2'or'3'or'4':
-            again()
+        list()
 
 def again():
     list_again = input('''
