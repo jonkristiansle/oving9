@@ -13,15 +13,15 @@ class Avtale:
         return f"Avtalen er: {self.tittel};Sted: {self.sted}.;Tidspunkt: {self.tidspunkt}.;Varighet: {self.varighet}"
 
 
-def avtale(liste):
-    tittel = str('skole')
-    sted = str('Skolen')
-    dato = '2022-11-04 12:00:00'
+def avtale():
+    tittel = str(input("Hva er avtale emne? "))
+    sted = str(input("Hvor skal avtalen skje? "))
+    dato = input("Når er avtalen? Skriv på denne måten: ÅÅÅÅ-MM-DD TT:MM:SS ")
     tidspunkt = datetime.fromisoformat(dato)
-    varighet = int(120)
+    varighet = int(input("Hvor mange minutter skal avtalen vare? "))
     avtalen = Avtale(tittel, sted, tidspunkt, varighet)
-    liste.append(avtalen)
-
+    #liste.append(avtalen)
+    return avtalen
 
 #2022-11-04 12:00:00
 
@@ -48,6 +48,20 @@ def henter_avtale_fra_fil(filnavn):
     print(liste_fra_fil)
     return liste_fra_fil
 
+# finner avtaler med samme dato # OPPGAVE J
+def samme_dato(liste, dato):
+    for e in range(len(liste)):
+        if dato in str(liste[e]):
+            print(liste[e])
+
+
+# Finner samme tittel # OPPGAVE K
+def samme_tittel(liste, tittel):
+    for e in range(len(liste)):
+        if tittel in str(liste[e]):
+            print(liste[e])
+
+
 liste_med_avtaler = []
 #avtale(liste_med_avtaler)
 #avtale(liste_med_avtaler)
@@ -56,7 +70,7 @@ liste_med_avtaler = []
 #henter_avtale_fra_fil("liste_med_avtaler.txt")
 #samme_dato(liste_med_avtaler,'2022-11-04')
 
-def list():
+def meny():
     operation = input('''
 Select operation:
 [1] Lese inn avtalve fra fil
@@ -64,38 +78,53 @@ Select operation:
 [3] Ny avtale
 [4] Skriv ut alle avtalene
 [5] Avslutt
+[6] Slett avtale 
+[7] Redigere avtale 
 
 ''')
-    mylist = []
+    meny = []
 
     if operation == '1':
         henter_avtale_fra_fil('liste_med_avtaler.txt')
-        again()
+        igjen()
     elif operation == '2':
         lagrer_liste_med_avtaler(liste_med_avtaler)
-        again()
+        igjen()
     elif operation == '3':
-        avtale(liste_med_avtaler)
-        again()
+        liste_med_avtaler.append(avtale())
+        igjen()
     elif operation == '4':
         skriv_ut_avtaler(liste_med_avtaler)
-        again()
+        igjen()
     elif operation == '5':
         print('Ok, hadde :)')
+    elif operation == '6':
+        skriv_ut_avtaler(liste_med_avtaler)
+        del liste_med_avtaler[int(input('Hvilken avtale vil du slette: '))-1]
+        igjen()
+    elif operation == '7':
+        skriv_ut_avtaler(liste_med_avtaler)
+        indeks=int(input("redigere"))
+        #indeks = liste_med_avtaler[int(input('Hvilken avtale vil du redigere '))-1]
+        liste_med_avtaler[indeks]= avtale()
+
+        igjen()
     else:
         print('Du må velge et gyldig tall.')
-        list()
+        meny()
 
-def again():
+def igjen():
     list_again = input('''
 Har du lyst til å gjøre flere endringer (J/N)
 ''')
 
     if list_again.upper() == 'J':
-        list()
+        meny()
     elif list_again.upper() == 'N':
         print('Ok, hadde :)')
     else:
-        again()
+        igjen()
 
-list()
+meny()
+#2022-11-04 12:00:00
+samme_tittel(liste_med_avtaler,'skole')
